@@ -1,0 +1,65 @@
+"""
+Legacy
+
+Description
+Josh is 18 years old and receives a legacy that consists of X amount of money and time machine.
+
+He decided to return until 1800, but he did not know if the money would suffice to live without working.
+
+Write a program that calculates whether Josh will have enough money to not have to work until a certain year.
+
+Assuming that for every even (1800, 1802, etc.) year will spend 12 000 dollars.
+
+For each odd (1801, 1803, etc.) will spend 12 000 + 50 * [the years age in a given year].
+
+Input
+The input is read from the console and contains exactly 2 lines:
+
+Legacy money – real number in range [1.00... 1,000,000.00]
+
+Year to be lived (inclusive) – integer in range [1801... 1900]
+
+Output
+Print on the console a single line. The amount must be formatted to two decimal digits:
+
+If the money are enough:
+
+"Yes! He will live a carefree life and will have {N} dollars left." – where N are the money that will remain
+
+If the money are NOT enough:
+
+"He will need {М} dollars to survive." - where M are money he needs
+"""
+
+legacy = float(input())
+year = int(input())
+differenece = year - 1800
+spend = 12000
+extra = 50
+payment = 0
+payment2 = 0
+odd = 0
+age = 0
+
+
+for i in range(differenece+1):
+    if i % 2 == 0:
+        payment += 1
+    else:
+        payment2 += 1
+        age = 18 + i
+        odd += age * extra
+
+
+even = payment * spend
+even2 = payment2 * spend
+
+
+all_cash = even + odd + even2
+rest = legacy - all_cash
+more = all_cash - legacy
+
+if all_cash <= legacy:
+    print(f'Yes! He will live a carefree life and will have {rest:.2f} dollars left.')
+else:
+    print(f"He will need {more:.2f} dollars to survive.")
