@@ -1,0 +1,101 @@
+"""
+Flowers
+
+Description
+A flower market offers 3 types of flowers: lilia, roses and tulips. The prices depend on the season:
+
+Season
+Lilia
+Rose
+Tulip
+Spring / Summer
+2.00$
+4.10$
+2.50$
+Autumn / Winter
+3.75$
+4.50$
+4.15$
+In the holidays the prices of all flowers increase by 15%.
+
+The market offers the following discounts:
+
+If you buy 7 or more tulips during the spring - 5% of the price of the whole bouquet
+
+If you buy 10 or more roses during the winter - 10% of the price of the whole bouquet
+
+If you buy more than 20 flowers in total during ALL seasons - 20% of the price of the whole bouquet
+
+The discounts are applied in the specified order above and can be superimposed!
+
+All of the discounts should be applied after the increasing of the prices in holidays!
+
+The price of the bouquet arrangement is always 2 dollars.
+
+Write a program to calculate the price of a bouquet.
+
+Input
+The input is read from the console and is exactly 5 lines:
+
+Count of the bought lilias - integer in range [0 ... 200]
+
+Count of the bought roses - integer in range [0 ... 200]
+
+Count of the bought tulips - integer in range [0 ... 200]
+
+Season - [Spring, Summer, Аutumn, Winter]
+
+If the day is holiday - [Y - yes / N - no]
+
+Output
+Print on the console a single number - the price of the flowers, formatted to the second decimal point.
+"""
+
+lilias = int(input())
+roses = int(input())
+tulips = int(input())
+season = input()
+holiday = input()
+
+all_flowers = lilias + roses + tulips
+
+arrangement = 2
+discount = 0
+discount2 = 0
+lilias_price = 0
+roses_price = 0
+tulips_price = 0
+
+if all_flowers > 20:
+    discount2 = 20 / 100
+
+if tulips >= 7 and season == "Spring":
+    discount = 5 / 100
+elif roses >= 10 and season == "Winter":
+    discount = 10 / 100
+
+if season == "Spring" or season == "Summer":
+    lilias_price = 2.00
+    roses_price = 4.10
+    tulips_price = 2.50
+elif season == "Autumn" or season == "Winter":
+    lilias_price = 3.75
+    roses_price = 4.50
+    tulips_price = 4.15
+
+holiday_add = 0
+
+if holiday == "Y":
+    holiday_add = 15 / 100
+elif holiday == "N":
+    holiday_add = 0
+
+count = (lilias * lilias_price + roses * roses_price + tulips * tulips_price)
+count_holiday = count + count * holiday_add
+count_discount = count_holiday - count_holiday * discount
+count_discount2 = count_discount - count_discount * discount2
+
+
+total = count_discount2 + arrangement
+
+print(f'{total:.2f}')
