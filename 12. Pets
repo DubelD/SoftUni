@@ -1,0 +1,54 @@
+"""
+Pets
+
+Description
+Write a program calculating the amount of kilograms food Martina's pets will eat for the time she is on adventure and checks if the food is enough.
+
+Each animal eats certain amount food per day.
+
+Input
+Read five lines from the console:
+
+number of days - an integer in range [1…5000]
+
+left food in kilograms - an integer in range [0…100000]
+
+food for the dog per day in kilograms - floating-point number in range [0.00…100.00]
+
+food for the cat per day in kilograms - floating-point number in range [0.00…100.00]
+
+food for the turtle per day in grams - floating-point number in range [0.00…10000.00]
+
+Output
+Print on the console a single line:
+
+If the left food IS enough:
+
+"{kilograms remain} kilos of food left." The result should be rounded to the nearest lower integer
+
+If the left food IS NOT enough:
+
+"{kilograms needed} more kilos of food are needed.". The result should be rounded to the nearest higher integer
+"""
+
+import math
+
+days = int(input())
+left = int(input())
+dog_food = float(input())
+cat_food = float(input())
+turtle_food = float(input())
+
+dogs_eats = days * dog_food
+cats_eats = days * cat_food
+turtles_eats = (days * turtle_food) /1000
+
+total = dogs_eats + cats_eats + turtles_eats
+
+kilograms_remain = math.floor(left - total)
+kilograms_needed = math.ceil(total - left)
+
+if total <= left:
+   print(f"{kilograms_remain} kilos of food left.")
+else:
+   print(f"{kilograms_needed} more kilos of food are needed.")
