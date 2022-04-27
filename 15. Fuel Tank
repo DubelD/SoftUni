@@ -1,0 +1,39 @@
+"""
+Fuel Tank
+
+Description
+Write a program that knows whether the tank of a vehicle needs refueling or not.
+
+Input
+The input is consists of 2 lines:
+
+First you have to read from the console the type of fuel - text with options: "Diesel", "Gasoline" or "Gas"
+
+The second line of input reads the fuel in the tank in liters
+
+Output
+If the fuel is other than the specified print "Invalid fuel!".
+
+Otherwise if the fuel in the tank is more than or equal to 25 liters print:
+
+"You have enough {type of fuel}."
+
+Type of the fuel should be printed in lower case.
+
+Otherwise print:
+
+"Fill your tank with {type of fuel}!".
+
+Type of the fuel should be printed in lower case.
+"""
+
+fuel_type = input()
+fuel_liters = int(input())
+
+if fuel_type == "Diesel" or fuel_type == "Gasoline" or fuel_type == "Gas":
+   if fuel_liters >= 25:
+       print(f'You have enough {fuel_type.lower()}.')
+   else:
+       print(f"Fill your tank with {fuel_type.lower()}!")
+else:
+   print("Invalid fuel!")
