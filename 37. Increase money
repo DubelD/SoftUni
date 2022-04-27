@@ -1,0 +1,22 @@
+"""
+Increase money
+
+Description
+Write a program, which:
+
+Receives the amount of money for each transaction untill "END"
+
+Adds the money to the balance and prints: "Increase: {money}", format money to the 2nd digit after the decimal point
+
+After "END" calculates and prints the total balance: "Total: {balance}", format balance to the 2nd digit after the decimal point
+"""
+balance = input()
+total = 0
+
+while balance != "END":
+    money = float(balance)
+    print(f"Increase: {money:.2f}")
+    total += money
+    balance = input()
+
+print(f'Total: {total:.2f}')
