@@ -1,0 +1,230 @@
+"""
+Description
+Write a program that prints the numbers in the range [1...1000], which end in 7.
+
+Print the numbers on a single line, separated by a single space.
+"""
+for i in range(1,1000):
+    if i % 10 == 7:
+        print(i, end=" ")
+
+
+
+"""
+Description
+Write a program, which:
+
+Reads a number from the console
+
+Sums the digits of a number
+
+Prints the sum
+"""
+x = int(input())
+
+the_sum = 0
+
+while x > 0:
+    digit = x % 10
+    the_sum += digit
+    x //= 10
+print(the_sum)
+
+
+"""
+Description
+Write a program, which:
+
+Reads a number n from the console
+
+Prints a sequence of numbers, which are <= n and satisfy the following condition:
+
+Each number is equal to the previous one multiplied by 2 plus 1
+"""
+n = int(input())
+k = 1
+
+while k <= n:
+    print(k)
+    k = 2 * k + 1
+
+"""
+Building
+
+Write a program, which:
+
+Prints information about apartments (odd rows), offices (even rows) and the last floor (last row)
+
+Apartment "A{buildingNum}{apartmentNum}"
+
+Office "O{floorNum}{officeNum}"
+
+Floor "L{buildingNum}{apartmentNum}"
+
+The numbers always start from 0
+"""
+
+floors = int(input())
+rooms = int(input())
+
+for floor in range(floors, 0, -1):
+    for room in range(rooms):
+        if floor == floors:
+            print(f"L{floor}{room} ", end='')
+        elif floor % 2 == 0:
+            print(f"O{floor}{room} ", end='')
+        else:
+            print(f"A{floor}{room} ", end='')
+    print()
+
+"""
+Sum of digits calculator
+"""
+command = input()
+exit_command = 'End'
+
+while command != exit_command:
+    x = int(command)
+    the_sum = 0
+
+    while x > 0:
+        digit = x % 10
+        the_sum += digit
+        x //= 10
+    print(f'Sum of digit = {the_sum}')
+    command = input()
+
+or 
+
+line = input()
+while line != "End":
+    total_sum = 0
+    num = int(line)
+    while num != 0:
+        digit = num % 10
+        total_sum += digit
+        num //= 10
+    print(f'Sum of digit = {total_sum}')
+    line = input()
+
+
+x = input()
+if x == "s3cr3t!":
+     print("Welcome")
+else:
+     print("Wrong password!")
+
+
+x = float(input())
+if x > 100:
+    print("The water is boiling")
+else:
+     print("The water is not hot enough")
+
+
+x = float(input())
+if x <= 30:
+     print("Slow")
+else:
+     print("Fast")
+
+
+
+
+x = input()
+if x == "square":
+    y = float(input())
+    areas = y * y
+    print(f'{areas:.2f}')
+elif x == "rectange":
+    a = float(input())
+    b = float(input())
+    arear = a * b
+    print(f'{arear:.2f}')
+elif x == "circle":
+    z = float(input())
+    areaz = z
+    print(f'{areaz:.2f}')
+else:
+    print("Unknow figure")
+
+
+import math
+
+area = 0
+figure_type = input()
+
+if figure_type == 'rectangle':
+    x = float(input())
+    y = float(input())
+    area = x * y
+    print(f'{area:.2f}')
+elif figure_type == 'square':
+    side = float(input())
+    area = side * side
+    print(f'{area:.2f}')
+elif figure_type == 'circle':
+    radius = float(input())
+    area = radius * radius * math.pi
+    print(f'{area:.2f}')
+else:
+    print("Unknown figure")
+
+
+ticket = input()
+student_price = 1.00
+regular_price = 1.6
+
+if ticket == "student":
+    print(f"${student_price:.2f}")
+elif ticket == "regular":
+    print(f"${regular_price:.2f}")
+else:
+    print("Invalid ticket type!")
+
+
+drink = input()
+extra = input()
+coffee_price = 1.00
+tea_price = 0.60
+sugar_price = 0.4
+coffee_sugar = coffee_price + sugar_price
+tea_sugar = tea_price + sugar_price
+if drink == "coffee":
+   if extra == "sugar":
+       print(f'Final price: ${coffee_sugar:.2f}')
+   elif extra == "no":
+       print(f'Final price: ${coffee_price:.2f}')
+elif drink == "tea":
+   if extra == "sugar":
+       print(f'Final price: ${tea_sugar:.2f}')
+   elif extra == "no":
+       print(f'Final price: ${tea_price:.2f}')
+
+
+a = int(input())
+b = int(input())
+c = int(input())
+
+if a + b <= c:
+   print("Invalid Triangle")
+elif a + c <= b:
+   print("Invalid Triangle")
+elif b + c <= a:
+   print("Invalid Triangle")
+else:
+   print("Valid Triangle")
+
+
+a = int(input())
+b = int(input())
+c = int(input())
+
+if a + b == c:
+   print("True")
+elif a + c == b:
+   print("True")
+elif b + c == a:
+   print("True")
+else:
+   print("False")
