@@ -1,0 +1,65 @@
+"""
+Exam Statistics
+
+Description
+Write a program to calculate statistics of the exam grades.
+
+In the beginning, the program receives the number of students attended the examination and its grade for each student.
+
+In the end, the program should print the percentage of students with grade between 2.00 and 2.99, between 3.00 and 3.99, 4.00 and 4.99, and between 5.00 or more.
+
+Also the average grade of the exam.
+
+Input
+Read from the console a series of numbers, each on a separate line:
+
+The first line - number of students attended the exam - an integer in the range [1 ... 1000]
+
+For each student on a separate line - grade of the exam - real number in the range [2.00 ... 6.00]
+
+Output
+Print on the console 5 rows that contain the following information:
+
+"Top students: {percent student with grade 5.00 or more}%"
+
+"Between 4.00 and 4.99: {between 4.00 and 4.99 inclusive}%"
+
+"Between 3.00 and 3.99: {between 3.00 and 3.99 inclusive}%"
+
+"Fail: {less than 3.00}%"
+
+"Average: {average grade}"
+
+All numbers must be formatted to the second decimal place.
+"""
+
+n = int(input())
+g1 = 0
+g2 = 0
+g3 = 0
+g4 = 0
+sum_grades = 0
+
+for i in range(n):
+    grades = float(input())
+    if grades >= 5.00:
+        g1 += 1
+    if 4.00 <= grades <= 4.99:
+        g2 += 1
+    if 3.00 <= grades <= 3.99:
+        g3 += 1
+    if 3.00 > grades:
+        g4 += 1
+    sum_grades += grades
+
+g1_percentage = (g1 / n) * 100
+g2_percentage = (g2 / n) * 100
+g3_percentage = (g3 / n) * 100
+g4_percentage = (g4 / n) * 100
+average = sum_grades / n
+
+print(f'Top students: {g1_percentage:.2f}%')
+print(f'Between 4.00 and 4.99: {g2_percentage:.2f}%')
+print(f'Between 3.00 and 3.99: {g3_percentage:.2f}%')
+print(f'Fail: {g4_percentage:.2f}%')
+print(f'Average: {average:.2f}')
