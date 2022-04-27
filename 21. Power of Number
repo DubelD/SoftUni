@@ -1,0 +1,21 @@
+"""
+Power of Number
+
+Description
+Write a program, which:
+
+Reads p – the power and n – the number
+
+Prints the result of n powered by p
+
+Don't use pow()
+"""
+
+p = int(input())
+n = int(input())
+result = 1
+
+for _ in range(p):
+   result *= n
+
+print(result)
