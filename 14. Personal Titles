@@ -1,0 +1,38 @@
+"""
+Personal Titles
+
+Description
+Write a console program that reads age (floating-point number) and gender("m" or "f") and and prints an address according to these principles:
+
+"Mr." - a man (gender "m") of age 16 or more
+
+"Master" - a boy (gender "m") under 16 years old
+
+"Ms." - a woman (gender "f") of age 16 or more
+
+"Miss" - a girl (gender "f") under 16 years old
+
+Input
+Entered from the console:
+
+age - floating-point number
+
+gender - "m" or "f"
+
+Output
+Print the expected address on a single line.
+"""
+
+age = float(input())
+gender = input()
+
+if gender == 'm':
+   if age < 16:
+       print("Master")
+   else:
+       print("Mr.")
+elif gender == 'f':
+   if age < 16:
+       print("Miss")
+   else:
+       print("Ms.")
