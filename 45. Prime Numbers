@@ -1,0 +1,14 @@
+"""
+Prime Numbers
+
+Description
+Reads two integers from the console.
+
+Prints the prime numbers in that range.
+"""
+import math
+a = int(input())
+b = int(input())
+for num in range(a,b+1):
+    if all(num%i!=0 for i in range(2,int(math.sqrt(num))+1)):
+        print(f'{num} ',end = "")
