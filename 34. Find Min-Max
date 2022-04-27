@@ -1,0 +1,30 @@
+"""
+Find Min-Max
+
+Description
+Write a program, which:
+
+Receives integers until "END"
+
+Prints the biggest and the smallest integer in the following format:
+
+Max number: {max number}
+
+Min number: {min number}
+"""
+
+import math
+
+line = input()
+min = math.inf
+max = -math.inf
+while line != "END":
+    n = int(line)
+    if n < min:
+        min = n
+    if n > max:
+        max = n
+    line = input()
+
+print(f'Max number: {max}')
+print(f'Min number: {min}')
