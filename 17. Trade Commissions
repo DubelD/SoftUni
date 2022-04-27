@@ -1,0 +1,129 @@
+"""
+Trade Commissions
+
+Description
+A company pays the following commissions to its businessmen according to the city they work in and the amount of sales s:
+
+Sales / City
+
+London
+
+New York
+
+Sydney
+
+[0-500]
+
+5%
+
+4.5%
+
+5.5%
+
+[501-1000]
+
+7%
+
+7.5%
+
+8%
+
+[1001-10000]
+
+8%
+
+10%
+
+12%
+
+s > 10000
+
+12%
+
+13%
+
+14.5%
+
+Write a console program that reads as input the name of a city and the amount of sales and calculates the value of the trade commission.
+
+Input
+Read from the console two lines:
+
+Name of a city - String
+
+Amount of sales - floating-point number
+
+Output
+Print on the console the calculated value of trade commission.
+
+The result should be formatted to the second decimal point.
+
+If you receive invalid name of city or amount of sales (negative number), print "error".
+"""
+
+city = input()
+sales = float(input())
+commissions = 0
+
+if city == "London":
+   if sales < 0:
+       print("error")
+   elif sales <= 500:
+       commissions = 5 / 100
+       value_commissions = sales * commissions
+       print(f'{value_commissions:.2f}')
+   elif sales <= 1000:
+       commissions = 7 / 100
+       value_commissions = sales * commissions
+       print(f'{value_commissions:.2f}')
+   elif sales <= 10000:
+       commissions = 8 / 100
+       value_commissions = sales * commissions
+       print(f'{value_commissions:.2f}')
+   else:
+       commissions = 12 / 100
+       value_commissions = sales * commissions
+       print(f'{value_commissions:.2f}')
+
+elif city == "New York":
+   if sales < 0:
+       print("error")
+   elif sales <= 500:
+       commissions = 4.5 / 100
+       value_commissions = sales * commissions
+       print(f'{value_commissions:.2f}')
+   elif sales <= 1000:
+       commissions = 7.5 / 100
+       value_commissions = sales * commissions
+       print(f'{value_commissions:.2f}')
+   elif sales <= 10000:
+       commissions = 10 / 100
+       value_commissions = sales * commissions
+       print(f'{value_commissions:.2f}')
+   else:
+       commissions = 13 / 100
+       value_commissions = sales * commissions
+       print(f'{value_commissions:.2f}')
+
+elif city == "Sydney":
+   if sales < 0:
+       print("error")
+   elif sales <= 500:
+       commissions = 5.5 / 100
+       value_commissions = sales * commissions
+       print(f'{value_commissions:.2f}')
+   elif sales <= 1000:
+       commissions = 8 / 100
+       value_commissions = sales * commissions
+       print(f'{value_commissions:.2f}')
+   elif sales <= 10000:
+       commissions = 12 / 100
+       value_commissions = sales * commissions
+       print(f'{value_commissions:.2f}')
+   else:
+       commissions = 14.5 / 100
+       value_commissions = sales * commissions
+       print(f'{value_commissions:.2f}')
+
+else:
+   print('error')
