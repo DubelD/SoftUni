@@ -1,0 +1,55 @@
+"""
+Pipes In Pool
+
+Description
+A pool with volume V has two pipes that fill it.
+
+Every pipe has certain flow (liters water that going through a single pipe per hour).
+
+The worker turns on the pipes at the same time and goes out for N hours.
+
+Write a program that shows the condition of the pool at the moment the worker comes back.
+
+Input
+Four lines of input:
+
+V - The volume of the pool in liters - integer in range [1…10000]
+
+P1 - flow of the first pipe per hour - integer in range [1…5000]
+
+P2 - flow of the second pipe per hour - integer in range [1…5000]
+
+H - hours the worker is missing - float-pointing number in range [1.0…24.00]
+
+Output
+Print on the console one of both possibilities:
+
+How far the pool has been filled and which pipe how much contributed in percentage
+
+"The pool is {occupancy of the pool in percent}% full. Pipe 1: {percent water from the first pipe}%. Pipe 2: {percent water from the second pipe}%."
+
+If the pool is overflowing – how many liters are overflowed for the given time
+
+"For {hours pipes are filling the pool} hours the pool overflows with {liters water overflow} liters."
+
+All numbers in the output should be formatted to 2nd digit after the decimal point.
+"""
+v = int(input())
+p1 = int(input())
+p2 = int(input())
+h = float(input())
+
+p1_fills = h * p1
+p2_fills = h * p2
+total_fills = p1_fills + p2_fills
+
+contributed_p1 = p1_fills / total_fills * 100
+contributed_p2 = p2_fills / total_fills * 100
+
+contributed_total = total_fills / v * 100
+overflowed = total_fills - v
+
+if total_fills <= v:
+   print(f"The pool is {contributed_total:.2f}% full. Pipe 1: {contributed_p1:.2f}%. Pipe 2: {contributed_p2:.2f}%.")
+else:
+   print(f"For {h:.2f} hours the pool overflows with {overflowed:.2f} liters.")
