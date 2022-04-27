@@ -1,0 +1,107 @@
+"""
+Summer Outfit
+
+Description
+It's summer with changeable weather and Victor needs your help.
+
+Write a program that recommends Victor which clothes to choose according to the part of day and degrees (Celsius).
+
+Your friend has different plans for every part of the day with different outfits – check the table below.
+
+Part of Day / Degrees
+Morning
+
+Afternoon
+
+Evening
+
+10 <= deg <= 18
+
+Outfit: Sweatshirt
+
+Outfit: Shirt
+
+Outfit: Shirt
+
+Shoes: Sneakers
+
+Shoes: Moccasins
+
+Shoes: Moccasins
+
+18 < deg <= 24
+
+Outfit: Shirt
+
+Outfit: T-Shirt
+
+Outfit: Shirt
+
+Shoes: Moccasins
+
+Shoes: Sandals
+
+Shoes: Moccasins
+
+deg >= 25
+
+Outfit: T-Shirt
+
+Outfit: Swim Suit
+
+Outfit: Shirt
+
+Shoes: Sandals
+
+Shoes: Barefoot
+
+Shoes: Moccasins
+
+Input
+Read two lines of input:
+
+Degrees - an integer in range [10…42]
+
+Part of day - text - possibilities: "Morning", "Afternoon", "Evening"
+
+Output
+Print on the console a single line:
+
+It's {degrees} degrees, get your {outfit} and {shoes}."
+"""
+
+degrees = int(input())
+part_of_day = input()
+
+if part_of_day == "Morning":
+    if 10 <= degrees <= 18:
+       outfit = 'Sweatshirt'
+       shoes = 'Sneakers'
+    elif 18 < degrees <= 24:
+       outfit = 'Shirt'
+       shoes = 'Moccasins'
+    elif 25 <= degrees <= 42:
+       outfit = 'T-Shirt'
+       shoes = 'Sandals'
+elif part_of_day == "Afternoon":
+   if 10 <= degrees <= 18:
+       outfit = 'Shirt'
+       shoes = 'Moccasins'
+   elif 18 < degrees <= 24:
+       outfit = 'T-Shirt'
+       shoes = 'Sandals'
+   elif 25 <= degrees <= 42:
+       outfit = 'Swim Suit'
+       shoes = 'Barefoot'
+elif part_of_day == "Evening":
+   if 10 <= degrees <= 18:
+       outfit = 'Shirt'
+       shoes = 'Moccasins'
+   elif 18 < degrees <= 24:
+       outfit = 'Shirt'
+       shoes = 'Moccasins'
+   elif 25 <= degrees <= 42:
+       outfit = 'Shirt'
+       shoes = 'Moccasins'
+
+print(f"It's {degrees} degrees, get your {outfit} and {shoes}.")
