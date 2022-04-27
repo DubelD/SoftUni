@@ -1,0 +1,58 @@
+"""
+Problem 6
+
+Description
+Until the command "STOP" you will be receiving titles of your favorite movies.
+
+The best movie for you will be the one that has the most points.
+
+Points are calculated as the sum of the ASCII character values in the movie title.
+
+There will not be a case where we have two films with an equal number of points.
+
+Keep in mind the following:
+
+For each lowercase letter in the title, you must subtract from the sum twice the length of the movie title.
+
+For each uppercase letter in the title, the length of the film's title should be subtracted from the sum.
+You can have a maximum of 7 movie titles.
+
+Input
+You receive multiple lines from the console until the command "STOP" or until the limit of 7 movies is reached:
+
+Movie title – string;
+
+Output
+Print on the console:
+
+If you have reached the limit of 7 movies you must print: "The limit is reached."
+
+Print the best movie for you: "The best movie for you is {movie title} with {sum of symbols} ASCII sum."
+
+"""
+
+movie = input()
+movie_count = 0
+best_movie = ""
+best_movie_points = 0
+
+while movie != "STOP":
+    movie_count += 1
+
+    current_points = 0
+    for i in range(len(movie)):    #liczymy długość tytułu
+        current_points += ord(movie[i])   #ASCI value danej litery
+        if 'a' <= movie[i] <= 'z':   # małe litery
+            current_points -= len(movie) * 2
+        elif 'A' <= movie[i] <= 'Z':
+            current_points -= len(movie)
+    if current_points > best_movie_points:
+        best_movie = movie
+        best_movie_points = current_points
+    if movie_count == 7:
+        print('The limit is reached.')
+        break
+
+    movie = input()
+
+print(f'The best movie for you is {best_movie} with {best_movie_points} ASCII sum.')
