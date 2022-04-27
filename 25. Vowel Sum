@@ -1,0 +1,54 @@
+"""
+Vowel Sum
+
+Description
+Write a program, which:
+
+Reads n - the count of characters:
+
+If character is vowel adds its value to the result
+
+character
+
+a
+
+e
+
+i
+
+o
+
+u
+
+value
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Prints the result
+"""
+
+n = int(input())
+
+sum = 0
+
+for i in range(n):
+   char = input()
+   if char == "a":
+       sum += 1
+   elif char == "e":
+       sum  += 2
+   elif char == "i":
+       sum  += 3
+   elif char == "o":
+       sum  += 4
+   elif char == "u":
+       sum  += 5
+print(sum)
