@@ -1,0 +1,55 @@
+"""
+Exam 2
+
+Description
+The Smiths are planning their family trip.
+
+Your task is to write a program that calculates whether their budget will be enough, knowing how many nights they have planned, what is the price per night and what percent of the budget has been provided for additional costs.
+
+Keep in mind that if the number of nights is greater than 7, the price per night is reduced by 5%.
+
+Input
+You will receive 4 lines from the console:
+
+The budget they have – real number in the range [1.00 … 10000.00]
+
+Count of nights – whole number in the range [0 … 1000]
+
+Price per night – real number in the range [1.00 … 500.00]
+
+Additional cost percentage – whole number in the range [0 … 100]
+
+Output
+The printing on the console depends on the result:
+
+If the budget is enough:
+
+"The Smiths will be left with {money left after the trip} dollars after vacation."
+
+If the budget is NOT enough:
+
+"{money needed} dollars needed."
+
+The sum must be formatted to the second digit after the decimal point.
+"""
+
+budget = float(input())
+count_night = int(input())
+night_price = float(input())
+additional_cost = int(input())
+
+discount = 0.95
+total_cost = 0
+total_additonal = budget * (additional_cost / 100)
+
+if count_night > 7:
+    total_cost = count_night * night_price * discount + total_additonal
+else:
+    total_cost = count_night * night_price + total_additonal
+
+if total_cost <= budget:
+    the_sum = budget - total_cost
+    print(f'The Smiths will be left with {the_sum:.2f} dollars after vacation.')
+else:
+    money_need = total_cost - budget
+    print(f'{money_need:.2f} dollars needed.')
