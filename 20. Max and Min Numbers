@@ -1,0 +1,27 @@
+"""
+Max and Min Numbers
+
+Description
+Write a program, which:
+
+Reads n representing the count of numbers to read next
+
+Finds the max and the min numbers
+
+Prints them on the console
+"""
+n = int(input())
+first_number = int(input())
+min_number = first_number
+max_number = first_number
+
+for _ in range(n - 1):
+   number = int(input())
+   if number < min_number:
+       min_number = number
+   elif number > max_number:
+       max_number = number
+
+
+print(f'Max number: {max_number}')
+print(f'Min number: {min_number}')
