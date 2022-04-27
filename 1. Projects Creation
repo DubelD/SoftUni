@@ -1,0 +1,26 @@
+"""
+Projects Creation
+
+Description
+Write a program that calculates how many hours will be necessary to an architect to create projects of some construction objects.
+
+Creating one project takes approximately 3 hours.
+
+Input
+Read two lines from the console:
+
+Name of the architect - String
+
+Number of projects - integer in range [0… 100]
+
+Output
+Print on the console:
+
+"The architect {name of the architect} will need {necessary hours} hours to complete {number of projects} project/s."
+"""
+
+
+name = input()
+projects = int(input())
+time = projects * 3
+print(f'The architect {name} will need {time} hours to complete {projects} project/s')
