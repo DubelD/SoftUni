@@ -1,0 +1,30 @@
+"""
+Yard Greening
+
+Description
+Write a program that calculates the expenses for yard greening.
+
+The price for one square meter is 7.61 dollars with VAT.
+
+The company offers 18% discount from the total price.
+
+Input
+Single line from the console:
+
+Square meters which will be greening - float-pointing number in range [0.00… 10000.00]
+
+Output
+Print on the console two lines:
+
+"The final price is: {total price} dollars"
+
+"The discount is: {discount} dollars"
+
+Prices should be formatted to the second decimal point.
+"""
+square = float(input())
+price_yard = square * 7.61
+discount = 0.18 * price_yard
+final_price = price_yard - discount
+print(f"The final price is: {final_price:.2f} dollars")
+print(f"The discount is: {discount:.2f} dollars")
