@@ -1,0 +1,28 @@
+"""
+Rollercoaster
+
+Description
+Write a program, which:
+
+Reads rollercoaster places, minimum age, count of people on the queue and age for each person
+
+If all places are taken, prints - "The rollercoaster departures"
+
+In other case, prints "Waiting..."
+"""
+
+places_count = int(input())
+min_age = int(input())
+people_count = int(input())
+
+places_taken_count = 0
+
+for _ in range(people_count):
+   age = int(input())
+   if min_age <= age:
+       places_taken_count +=1
+
+if places_taken_count < places_count:
+   print("Waiting...")
+else:
+   print("The rollercoaster departures")
