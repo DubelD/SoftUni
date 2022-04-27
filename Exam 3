@@ -1,0 +1,108 @@
+"""
+Exam 3
+
+Description
+Write a program that calculates the price a customer, who has bought drinks from a coffee machine, has to pay:
+
+Without sugar
+
+Normal
+
+Extra sugar
+
+Espresso
+
+0.90$
+
+1$
+
+1.20$
+
+Cappuccino
+
+1.00$
+
+1.20$
+
+1.60$
+
+Tea
+
+0.50$
+
+0.60$
+
+0.70$
+
+Keep in mind the following discounts:
+
+With a selected drink without sugar, there is a 35% discount.
+
+With a selected drink "Espresso" and bought at least 5 drinks, there is a 25% discount.
+
+With an amount exceeding 15$, there is a 20% discount from the final price.
+
+The discounts are applied in the order of their description.
+
+Input
+You receive 3 lines from the console:
+
+First line - drink - string: "Espresso", "Cappuccino" or "Tea"
+
+Second line - sugar - string: "Without", "Normal" or "Extra"
+
+Third line - count drinks - whole number in the range [1… 50]
+
+Output
+Print one line on the console:
+
+"You bought {count drinks} cups of {drink} for {total price} dollars."
+
+The price must be formatted to the second digit after the decimal point.
+"""
+
+drink = input()
+sugar = input()
+count_drink = int(input())
+
+sugar_discount = 0.65
+espresso_discount = 0.75
+amount_discount = 0.8
+price = 0
+
+if drink == "Espresso":
+    if count_drink < 5:
+        if sugar == "Without":
+            price = 0.9 * count_drink * sugar_discount
+        elif sugar == "Normal":
+            price = 1 * count_drink
+        elif sugar == "Extra":
+            price = 1.2 * count_drink
+    else:
+        if sugar == "Without":
+            price = 0.9 * count_drink * sugar_discount * espresso_discount
+        elif sugar == "Normal":
+            price = 1 * count_drink * espresso_discount
+        elif sugar == "Extra":
+            price = 1.2 * count_drink * espresso_discount
+elif drink == "Cappuccino":
+    if sugar == "Without":
+        price = 1 * count_drink * sugar_discount
+    elif sugar == "Normal":
+        price = 1.2 * count_drink
+    elif sugar == "Extra":
+        price = 1.6 * count_drink
+elif drink == "Tea":
+    if sugar == "Without":
+        price = 0.5 * count_drink * sugar_discount
+    elif sugar == "Normal":
+        price = 0.6 * count_drink
+    elif sugar == "Extra":
+        price = 0.7 * count_drink
+
+if price > 15:
+    final_price = price * 0.8
+else:
+    final_price = price
+
+print(f'You bought {count_drink} cups of {drink} for {final_price:.2f} dollars.')
