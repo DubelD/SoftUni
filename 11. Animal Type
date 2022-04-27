@@ -1,0 +1,23 @@
+"""
+Animal Type
+
+Description
+Write a program that prints the type of an animal according to its name.
+
+Input / Output
+dog -> mammal
+crocodile, tortoise, snake -> reptile
+others -> unknown
+"""
+name = input()
+
+if name == "dog":
+   print("mammal")
+elif name == "crocodile":
+   print("reptile")
+elif name == "tortoise":
+   print("reptile")
+elif name == "snake":
+   print("reptile")
+else:
+   print("unknown")
