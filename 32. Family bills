@@ -1,0 +1,61 @@
+"""
+Family bills
+
+Description
+Write a program to calculate the average cost per month for a family over a period of time. For each month the costs are as follows:
+
+For electricity - every month the bill is different and will be read from the console
+
+For water - 20$
+
+For Internet - 15$
+
+For others - sum the bills for electricity, water and Internet and add 20%
+
+For each bill, you need to calculate how much total is paid for all months.
+
+Input
+The input is read from the console:
+
+The months for which the average cost is searched – integer in range [1... 100]
+
+For each month – the bill for electricity – a real number in range [1.00... 1000.00]
+
+Output
+Print to the console 5 rows:
+
+"Electricity: {electricity for all months} $"
+
+"Water: {water for all months} $"
+
+"Internet: {Internet for all months} $"
+
+"Other: {Other for all months} $"
+
+"Average: {Average all costs per month} $ "
+
+All bills should be formatted to the 2nd digit after the decimal point.
+"""
+
+number_months = int(input())
+
+count_electrics_bill = 0
+water_bill = 20
+internet_bill = 15
+water_sum = water_bill * number_months
+internet_sum = internet_bill * number_months
+others_bills = 0
+
+for _ in range(number_months):
+    electrics_bill = float(input())
+    count_electrics_bill += electrics_bill
+    others_bills += (electrics_bill + water_bill + internet_bill) * 1.2
+
+total = count_electrics_bill + water_sum + internet_sum + others_bills
+average = total / number_months
+
+print(f'Electricity: {count_electrics_bill:.2f} $')
+print(f'Water: {water_sum:.2f} $')
+print(f'Internet: {internet_sum:.2f} $')
+print(f'Other: {others_bills:.2f} $')
+print(f'Average: {average:.2f} $')
