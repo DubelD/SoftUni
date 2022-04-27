@@ -1,0 +1,42 @@
+"""
+Time + 15 Minutes
+
+Description
+Write a program that reads from the console an hour and minutes from 24-hour day, and calculates what will be the time after 15 minutes.
+
+Input
+The input consists two lines:
+
+The hours - integer in range [0...23]
+
+The minutes - integer in range [0...59]
+
+Output
+Print the result in the following format: "{hours}:{minutes}".
+
+The hours should be formatted without leading zero.
+
+The minutes should be formatted with leading zero.
+"""
+
+hour = int(input())
+minute = int(input())
+count = (minute + 15) % 60
+h1 = hour + 1
+
+
+if minute + 15 > 59:
+    if h1 >= 24:
+        h1 = 0
+        if count < 10:
+            print(f"{h1}:0{count}")
+        else:
+            print(f"{h1}:{count}")
+    else:
+        if count < 10:
+            print(f"{h1}:0{count}")
+        else:
+            print(f"{h1}:{count}")
+else:
+    minute = minute + 15
+    print(f"{hour}:{minute}")
