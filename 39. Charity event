@@ -1,0 +1,82 @@
+"""
+Charity event
+
+Description
+At a charity event, payments for the purchased products are always alternated: cash payment and card payment. Always first payment method is cash.
+
+The following payment rules have been established:
+
+If the product exceeds 100 dollars, it cannot be paid in cash
+
+If the product is priced under 10 dollars, it cannot be paid by credit card
+
+The program ends either after we receive the command "End", or after the funds are collected.
+
+Input
+Read from the console:
+
+The amount expected to be collected from sales - integer in range [1...10000]
+
+On each subsequent line, until the "End" command is received or until the necessary funds are collected:
+- The prices of items to be purchased - integer in range [1...500]
+
+Output
+Print on the console:
+
+In case of successful transaction: "Product sold!"
+
+In case of unsuccessful transaction: "Error in transaction!"
+
+If the sum of all purchased products exceeds or reaches the expected amount, the program must be completed and two lines are printed to the console:
+
+"Average CS: {average payment in person's cash}"
+
+"Average CC: {average card payment per person}"
+Payments must be formatted to the second digit after the decimal point.
+
+When the "End" command is received, one line is written:
+
+"Failed to collect required money for charity."
+"""
+
+amount = int(input())
+
+line = input()
+
+sum_cs = 0
+sum_cc = 0
+count_cs = 0
+count_cc = 0
+sum_collected = 0
+i = 0
+
+while line != "End" and sum_collected < amount:
+    price = int(line)
+    i += 1
+    if i % 2 != 0:
+        if price > 100:
+            print('Error in transaction!')
+        else:
+            print("Product sold!")
+            count_cs += 1
+            sum_cs += price
+    else:
+        if price < 10:
+            print('Error in transaction!')
+        else:
+            print("Product sold!")
+            count_cc += 1
+            sum_cc += price
+
+    sum_collected = sum_cc + sum_cs
+    if sum_collected >= amount:
+        break
+    line = input()
+
+if line == "End":
+    print("Failed to collect required money for charity.")
+else:
+    average_cs = sum_cs / count_cs
+    average_cc = sum_cc / count_cc
+    print(f"Average CS: {average_cs:.2f}")
+    print(f"Average CC: {average_cc:.2f}")
