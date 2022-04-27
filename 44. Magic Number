@@ -1,0 +1,26 @@
+"""
+Magic Number
+
+Description
+Read a number - n, from the console
+
+Find all 3-digit numbers, which form n as the product of the multiplication of their digits
+"""
+n = int(input())
+
+for number in range(100, 1000):
+    x = number % 10
+    y = (number // 10) % 10
+    z = (number // 100)
+    if x * y * z == n:
+        print(number)
+
+"""
+or 
+
+for x in range(0, 10):
+    for y in range(0, 10):
+        for z in range(0, 10):
+            if x * y * z == n:
+                print(f'{x}{y}{z}')
+"""
