@@ -1,0 +1,40 @@
+"""
+Problem 1
+
+Description
+Write a program, which calculates how long it will take you to watch all episodes of a series in minutes.
+
+You will receive count seasons, count episodes per season and duration of each episode.
+
+In every episode there are advertisements, whose duration is 20% of the episode’s duration.
+
+You also have to keep in mind that every season ends with a special episode, which lasts 10 minutes longer than usual.
+
+Input
+From the console you receive 4 lines:
+
+Name of the series - String
+
+Count seasons – int in the range [1… 10]
+
+Count episodes – int in the range [10… 80]
+
+Duration of a usual episode without the advertisements – double in the range [40.0… 65.0]
+
+Output
+You have to print on the console the time needed to watch all of the episodes, rounded down to the nearest whole number in the following format:
+
+"Total time needed to watch the {name of the series} series is {time} minutes."
+"""
+import math
+name_series = input()
+count_seasons = int(input())
+count_episodes = int(input())
+duration_without_ads = float(input())
+
+ad_time = duration_without_ads * 0.2
+total_ep_time = duration_without_ads + ad_time
+extra_time = count_seasons * 10
+total_time = total_ep_time * count_seasons * count_episodes + extra_time
+
+print(f'Total time needed to watch the {name_series} series is {math.floor(total_time)} minutes.')
