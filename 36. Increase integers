@@ -1,0 +1,22 @@
+"""
+Increase integers
+
+Description
+Write a program, which:
+
+Reads an integer number from the console
+
+Keeps reading integers until it finds the same one as the first one
+
+When it finds it, it increases the value of the previous number before it with 100% and prints it
+"""
+
+x = int(input())
+y = int(input())
+z = x
+while x != y:
+    z = y
+    y = int(input())
+
+
+print(z + z)
