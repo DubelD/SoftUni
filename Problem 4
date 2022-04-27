@@ -1,0 +1,60 @@
+"""
+Problem 4
+
+Description
+You have been hired by a cinema to write a program that calculates whether a movie showing will be enough so that the cinema hall is filled and how much money will the profit be.
+
+You are going to receive the count of seats in the hall and on the next lines until the command "Movie time!", how many people enter the hall.
+
+The price for one ticket is 5$.
+
+If the current count of people that enter the hall can be divided by 3 without remainder, there is 5$. discount of the total price.
+
+If there are not enough free seats for the people that want to enter, it means that the there are no more seats left and the program must stop reading input from the console.
+
+If more people than the available seats try to enter the hall, it is considered full and the program should stop receiving input.
+
+Input
+Read from the console:
+
+First line – hall's capacity – whole number in the range [50... 150]
+
+On each of the next lines until the command "Movie time!":
+
+Count of people entering the cinema - whole number in the range [1… 15]
+
+Output
+First, print on the console one line:
+
+If you have received the command "Movie time!": "There are {seats left} seats left in the cinema."
+
+If there are no more free seats in the hall: "The cinema is full."
+
+Afterwards, print: "Cinema income - {income}$"
+"""
+
+capacity = int(input())
+
+total_people = 0
+total_profit = 0
+
+command = input()
+
+while command != "Movie time!":
+    current_people = int(command)
+    total_people += current_people
+    if total_people > capacity:
+        break
+
+    total_profit += current_people * 5
+    if current_people % 3 == 0:
+        total_profit -= 5
+
+    command = input()
+
+if total_people > capacity:
+    print("The cinema is full.")
+else:
+    seats_left = capacity - total_people
+    print(f'There are {seats_left} seats left in the cinema.')
+print(f'Cinema income - {total_profit}$')
