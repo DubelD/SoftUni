@@ -1,0 +1,32 @@
+"""
+Special number
+
+Description
+Special number is number divisible by all of its digits without remainder.
+
+Write a program, which:
+
+Receives integer
+
+Prints "{num} is special", if the number is special
+
+Otherwise, prints "{num} is not special"
+"""
+origin_number = int(input())
+is_special = True
+number = origin_number
+
+while number > 0:
+    digit = number % 10
+    number = number // 10
+    if digit == 0:
+        is_special = True
+    else:
+        if origin_number % digit != 0:
+            is_special = False
+            break
+
+if is_special:
+    print(f'{origin_number} is special')
+else:
+    print(f'{origin_number} is not special')
