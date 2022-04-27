@@ -1,0 +1,30 @@
+"""
+Zig Zag Sum
+
+Description
+Write a program, which:
+
+Reads n - number representing amount of input numbers
+
+Reads n integers
+
+For every even line adds the number to the result
+
+For every odd line subtracts the number from the result
+
+The counting starts from 1
+
+Prints the result
+"""
+
+n = int(input())
+zig_zag_sum = 0
+
+for i in range(1, n +1):
+   number = int(input())
+   if i % 2 == 0:
+       zig_zag_sum += number
+   else:
+       zig_zag_sum -= number
+
+print(zig_zag_sum)
