@@ -1,0 +1,32 @@
+"""
+Equal Pairs
+
+Description
+Write a program, which:
+
+Reads number n and n pairs of numbers
+
+Prints "Yes, value={sum}", if the sum of all pairs is the same
+
+Otherwise, prints "No, maxdiff={diff}"
+
+diff is the max difference in the sum between two pairs
+"""
+n = int(input())
+prev_sum = 0
+max_diff = 0
+are_equal = True
+for i in range (0, n):
+   a = int(input())
+   b = int(input())
+   if i > 0:
+       if max_diff < abs(prev_sum - a - b):
+           max_diff = abs(prev_sum - a - b)
+       if are_equal and a + b != prev_sum:
+           are_equal = False
+   prev_sum = a + b
+
+if are_equal:
+   print(f'Yes, value={prev_sum}')
+else:
+   print(f'No, maxdiff={max_diff}')
