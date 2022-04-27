@@ -1,0 +1,47 @@
+"""
+Problem 2
+
+Description
+During the lunch break you want to watch an episode from your favorite series.
+
+Your task is to write a program that will help you determine whether you have enough time to watch the episode.
+
+In the lunch break you spend time to have lunch and to unwind.
+
+The time for lunch will be 1/8 of the break time and the time for relaxing will be 1/4 of the break time.
+
+Input
+You receive 3 lines from the console:
+
+Name of the series - string
+
+Duration of an episode - whole number in the range [10… 90]
+
+Duration of the break - whole number in the range [10… 120]
+
+Output
+Print on the console one line:
+
+If the time is enough to watch the episode: "You have enough time to watch {name of the series} and left with {time left} minutes free time."
+
+If the time is not enough: "You don't have enough time to watch {name of the series}, you need {time needed} more minutes."
+
+Round the time up to the nearest whole number.
+"""
+import math
+name_series = input()
+duration_episode = int(input())
+duration_break = int(input())
+
+lunch_time = 1 / 8 * duration_break
+relax_time = 1 / 4 * duration_break
+
+free_time = duration_break - relax_time - lunch_time
+
+time_diff = free_time - duration_episode
+
+if time_diff >= 0:
+    print(f'You have enough time to watch {name_series} and left with {math.ceil(time_diff)} minutes free time.')
+else:
+    time_diff *= -1
+    print(f"You don't have enough time to watch {name_series}, you need {math.ceil(time_diff)} more minutes.")
