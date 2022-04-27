@@ -1,0 +1,66 @@
+"""
+Exam 4
+
+Description
+The weather is warming up and the clubs are launching promising offers.
+
+Write a program that calculates the profit of a club for the evening and whether the desired profit is reached, keeping in mind the following:
+
+The price of a cocktail is its name's length.
+
+If the price of an order is an odd number, there is a 25% discount on the order price.
+
+Input
+You will receive:
+
+On the first line – the desired profit of the club - real number in the range [1.00... 15000.00]
+
+A series of two rows until the command "Party!" or until the desired profit is reached:
+
+Name of the cocktail - string
+
+Number of cocktails for the order - whole number in the range [1… 50]
+
+Output
+First, print one line on the console:
+
+If you receive the command "Party!":
+
+"We need {money needed} dollars more."
+
+If the desired profit is reached:
+
+"Target acquired."
+
+Then print:
+
+"Club income - {club's profit} dollars."
+
+The money must be formatted to the second digit after the decimal point.
+"""
+
+desired_profit = float(input())
+name_cocktail = input()
+
+club_income = 0
+price_cocktail = 0
+last_price = 0
+
+while name_cocktail != "Party!":
+    cocktail_number = float(input())
+    price_cocktail = len(name_cocktail) * cocktail_number
+    if price_cocktail % 2 != 0:
+        discount = 0.75
+        last_price += price_cocktail * discount
+    else:
+        last_price += price_cocktail
+    if last_price >= desired_profit:
+        break
+    name_cocktail = input()
+
+if last_price < desired_profit:
+    money_needed = desired_profit - last_price
+    print(f'We need {money_needed:.2f} dollars more.')
+else:
+    print("Target acquired.")
+print(f'Club income - {last_price:.2f} dollars.')
