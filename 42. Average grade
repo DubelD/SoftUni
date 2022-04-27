@@ -1,0 +1,43 @@
+"""
+Average grade
+
+Description
+Write a program that calculates the average grade of a student from his entire education.
+
+Input
+On the first line you will receive the name of the student, and on each following line his annual grades. - The student passes to upper class, if his annual grade is 4.00 or greater.
+
+If his grade is less than 4.00, he has to repeat the class.
+
+Output
+If the student graduates 12th class, you have to print:
+
+"{student name} graduated. Average grade: {average grade from his entire education}"
+
+The grade should be formatted to the second decimal point.
+"""
+
+name = input()
+grade = float(input())
+if grade >= 4:
+    i = 1
+    average_grades = grade
+    grades_no = 1
+else:
+    i = 0
+    average_grades = grade
+    grades_no = 1
+
+
+while i < 12:
+    if grade >= 4:
+        i += 1
+        grade = float(input())
+        average_grades += grade
+        grades_no += 1
+    else:
+        grade = float(input())
+
+
+average = average_grades / grades_no
+print(f'{name} graduated. Average grade: {average:.2f}')
